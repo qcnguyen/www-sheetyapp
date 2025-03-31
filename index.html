@@ -1,71 +1,25 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
+    <link rel = "icon" type = "image/svg" href = "/logo.svg">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sheety App - Simplify Your Spreadsheets</title>
+    <title>SheetyApp - Get Sheet Done</title>
+    <script src="https://cdn.tailwindcss.com"></script>
     <style>
-        body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-            background-color: #f4f4f9;
-            color: #333;
-        }
-
-        header {
-            background-color: #4CAF50;
-            color: white;
-            padding: 20px 10px;
-            text-align: center;
-        }
-
-        .container {
-            padding: 20px;
-            text-align: center;
-        }
-
-        .cta-button {
-            display: inline-block;
-            margin-top: 20px;
-            padding: 10px 20px;
-            background-color: #4CAF50;
-            color: white;
-            text-decoration: none;
-            border-radius: 5px;
-            font-size: 16px;
-        }
-
-        .cta-button:hover {
-            background-color: #45a049;
-        }
-
-        footer {
-            margin-top: 20px;
-            padding: 10px;
-            background-color: #333;
-            color: white;
-            text-align: center;
-        }
+        body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif; }
+        .gradient-bg { background: linear-gradient(135deg, #000000, #00bcd4, #4caf50); }
     </style>
 </head>
-
-<body>
-    <header>
-        <h1>Welcome to Sheety App</h1>
-        <p>Simplify your spreadsheets and boost productivity!</p>
-    </header>
-
-    <div class="container">
-        <h2>Why Choose Sheety App?</h2>
-        <p>Sheety App is your ultimate solution for managing and automating spreadsheets. Save time, reduce errors, and focus on what matters most.</p>
-        <a href="#signup" class="cta-button">Get Started for Free</a>
+<body class="gradient-bg text-white flex flex-col items-center justify-center min-h-screen text-center p-6">
+    <div class="max-w-2xl flex flex-col items-center">
+        <h1 class="text-6xl font-extrabold mb-4 drop-shadow-lg">You don’t need a spreadsheet!</h1>
+        <h2 class="text-4xl font-bold mb-6 text-gray-200 drop-shadow-md">You need SheetyApp.</h2>
+        <p class="text-lg text-gray-300 mb-8">Go Get Sheet Done with the simplest, most powerful tool.</p>
+        <a href="https://go.sheetyapp.com" class="flex items-center gap-2 px-8 py-4 text-lg font-semibold text-white bg-green-500 rounded-full shadow-lg hover:bg-green-400 transition-transform transform hover:scale-105">
+            <img src="logo.svg" alt="SheetyApp Logo" class="w-6 h-6 object-contain">
+            Get Started
+        </a>
     </div>
-
-    <footer>
-        <p>&copy; 2025 Sheety App. All rights reserved.</p>
-    </footer>
 </body>
-
 </html>
