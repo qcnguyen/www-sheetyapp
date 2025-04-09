@@ -451,7 +451,7 @@
     </section>
     
     <div class="content">
-        <p class="text-lg text-center mb-6">Our pricing is based on: ($1 × number of members in your selected pack) × plan tier pricing.</p>
+        <p class="text-lg text-center mb-6">Our pricing is based on:  [number of members in your selected pack] × [plan tier base pricing].</p>
     
         <div class="pricing-grid">
             <!-- Free Plan -->
@@ -502,7 +502,7 @@
                 <div class="card-header">
                     <div class="plan-name">Basic</div>
                     <div class="price">$3-21<span class="price-multiplier">/month</span></div>
-                    <p class="text-gray-600 text-sm">For small teams (3-21 members) • × $1</p>
+                    <p class="text-gray-600 text-sm">For small teams (3-21 members) • × $1 base price</p>
                 </div>
                 <div class="card-body">
                     <ul class="feature-list">
@@ -546,7 +546,7 @@
                 <div class="card-header">
                     <div class="plan-name">Standard</div>
                     <div class="price">$68-1,220<span class="price-multiplier">/month</span></div>
-                    <p class="text-gray-600 text-sm">For growing businesses (34-610 members) • × $2</p>
+                    <p class="text-gray-600 text-sm">For growing businesses (34-610 members) • × $2 base price</p>
                 </div>
                 <div class="card-body">
                     <ul class="feature-list">
@@ -595,7 +595,7 @@
                 <div class="card-header">
                     <div class="plan-name">Pro</div>
                     <div class="price">$2,961-20,295<span class="price-multiplier">/month</span></div>
-                    <p class="text-gray-600 text-sm">For professional teams (987-6,765 members) • × $3</p>
+                    <p class="text-gray-600 text-sm">For professional teams (987-6,765 members) • × $3 base price</p>
                 </div>
                 <div class="card-body">
                     <ul class="feature-list">
@@ -643,8 +643,8 @@
             <div class="pricing-card premium-plan">
                 <div class="card-header">
                     <div class="plan-name">Premium</div>
-                    <div class="price">$4,935-606,965<span class="price-multiplier">/month</span></div>
-                    <p class="text-gray-600 text-sm">For enterprises (987-121,393 members) • × $5</p>
+                    <div class="price">$36,000<span class="price-multiplier">/month</span></div>
+                    <p class="text-gray-600 text-sm">For enterprises • Unlimited members</p>
                 </div>
                 <div class="card-body">
                     <ul class="feature-list">
@@ -664,10 +664,7 @@
                             <svg class="check-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
                             </svg>
-                            Select pack: F12-F22 (987-121,393 members)
-                            <svg class="info-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" title="Starting from F12: 987 ($4,935/mo) up to F22: 121,393 ($606,965/mo) with 5× base price">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
-                            </svg>
+                            Unlimited members
                         </li>
                         <li>
                             <svg class="check-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
@@ -695,18 +692,6 @@
             </div>
         </div>
         
-        <div class="promotion-section">
-            <div class="promotion-content">
-                <h2 class="text-xl font-bold mb-2" style="margin-top: 0; border-bottom: none;">Have a Promotion Code?</h2>
-                <p class="text-gray-700 mb-0">Enter your code to unlock special pricing or features.</p>
-            </div>
-            <div class="promotion-form">
-                <input type="text" class="promotion-input" placeholder="Enter promotion code">
-                <button class="promotion-btn">Apply</button>
-            </div>
-        </div>
-        
-        <div class="section-divider"></div>
         
         <div class="member-allowance">
             <h2>Member Allowance Packs</h2>
@@ -715,10 +700,8 @@
                 <li>Basic: $1</li>
                 <li>Standard: $2</li>
                 <li>Pro: $3</li>
-                <li>Premium: $5</li>
+                <li>Premium: <strong>Fixed $36,000 for unlimited members</strong></li>
             </ul>
-            
-            
             
             <table class="allowance-table">
                 <thead>
@@ -726,6 +709,7 @@
                         <th>Pack</th>
                         <th>Members</th>
                         <th>Compatible Plans</th>
+                        <th>Calculated Price</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -733,119 +717,114 @@
                         <td>F0</td>
                         <td>3 members</td>
                         <td>Free, Basic</td>
+                        <td>Free or $3/month</td>
                     </tr>
                     <tr>
                         <td>F1</td>
                         <td>5 members</td>
                         <td>Basic</td>
+                        <td>$5/month</td>
                     </tr>
                     <tr>
                         <td>F2</td>
                         <td>8 members</td>
                         <td>Basic</td>
+                        <td>$8/month</td>
                     </tr>
                     <tr>
                         <td>F3</td>
                         <td>13 members</td>
                         <td>Basic</td>
+                        <td>$13/month</td>
                     </tr>
                     <tr>
                         <td>F4</td>
                         <td>21 members</td>
                         <td>Basic</td>
+                        <td>$21/month</td>
                     </tr>
                     <tr>
                         <td>F5</td>
                         <td>34 members</td>
                         <td>Standard</td>
+                        <td>$68/month</td>
                     </tr>
                     <tr>
                         <td>F6</td>
                         <td>55 members</td>
                         <td>Standard</td>
+                        <td>$110/month</td>
                     </tr>
                     <tr>
                         <td>F7</td>
                         <td>89 members</td>
                         <td>Standard</td>
+                        <td>$178/month</td>
                     </tr>
                     <tr>
                         <td>F8</td>
                         <td>144 members</td>
                         <td>Standard</td>
+                        <td>$288/month</td>
                     </tr>
                     <tr>
                         <td>F9</td>
                         <td>233 members</td>
                         <td>Standard</td>
+                        <td>$466/month</td>
                     </tr>
                     <tr>
                         <td>F10</td>
                         <td>377 members</td>
                         <td>Standard</td>
+                        <td>$754/month</td>
                     </tr>
                     <tr>
                         <td>F11</td>
                         <td>610 members</td>
                         <td>Standard</td>
+                        <td>$1,220/month</td>
                     </tr>
                     <tr>
                         <td>F12</td>
                         <td>987 members</td>
-                        <td>Pro, Premium</td>
+                        <td>Pro</td>
+                        <td>$2,961/month</td>
                     </tr>
                     <tr>
                         <td>F13</td>
                         <td>1,597 members</td>
-                        <td>Pro, Premium</td>
+                        <td>Pro</td>
+                        <td>$4,791/month</td>
                     </tr>
                     <tr>
                         <td>F14</td>
                         <td>2,584 members</td>
-                        <td>Pro, Premium</td>
+                        <td>Pro</td>
+                        <td>$7,752/month</td>
                     </tr>
                     <tr>
                         <td>F15</td>
                         <td>4,181 members</td>
-                        <td>Pro, Premium</td>
+                        <td>Pro</td>
+                        <td>$12,543/month</td>
                     </tr>
                     <tr>
                         <td>F16</td>
                         <td>6,765 members</td>
-                        <td>Pro, Premium</td>
+                        <td>Pro</td>
+                        <td>$20,295/month</td>
                     </tr>
                     <tr>
-                        <td>F17</td>
-                        <td>10,946 members</td>
-                        <td>Premium</td>
-                    </tr>
-                    <tr>
-                        <td>F18</td>
-                        <td>17,711 members</td>
-                        <td>Premium</td>
-                    </tr>
-                    <tr>
-                        <td>F19</td>
-                        <td>28,657 members</td>
-                        <td>Premium</td>
-                    </tr>
-                    <tr>
-                        <td>F20</td>
-                        <td>46,368 members</td>
-                        <td>Premium</td>
-                    </tr>
-                    <tr>
-                        <td>F21</td>
-                        <td>75,025 members</td>
-                        <td>Premium</td>
-                    </tr>
-                    <tr>
-                        <td>F22</td>
-                        <td>121,393 members</td>
-                        <td>Premium</td>
+                        <td></td>
+                        <td>Unlimited members</td>
+                        <td>Premium </td>
+                        <td>$36,000/month </td>
                     </tr>
                 </tbody>
             </table>
+            
+            <p class="mt-4"><strong>Note:</strong> The Premium plan offers unlimited members for a fixed price of $36,000 per month, regardless of team size.</p>
         </div>
         
         <div class="section-divider"></div>
