@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <link rel="icon" type="image/svg" href="/logo.svg">
+    <link rel="icon" type="image/png" href="/logo-64.png">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>About Us - Sheety App</title>
     <script src="https://cdn.tailwindcss.com"></script>
@@ -47,6 +47,44 @@
         .menu-links {
             display: flex;
             align-items: center;
+        }
+        .mobile-menu-btn {
+            display: none;
+            flex-direction: column;
+            cursor: pointer;
+            padding: 0.5rem;
+        }
+        .mobile-menu-btn span {
+            width: 25px;
+            height: 3px;
+            background-color: #2d3748;
+            margin: 3px 0;
+            transition: 0.3s;
+        }
+        .mobile-menu {
+            display: none;
+            position: absolute;
+            top: 100%;
+            left: 0;
+            width: 100%;
+            background: rgba(255, 255, 255, 0.98);
+            backdrop-filter: blur(10px);
+            flex-direction: column;
+            padding: 1rem 0;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        }
+        .mobile-menu.active {
+            display: flex;
+        }
+        .mobile-menu a {
+            padding: 0.75rem 2rem;
+            color: #2d3748;
+            text-decoration: none;
+            font-weight: 600;
+            transition: background-color 0.3s ease;
+        }
+        .mobile-menu a:hover {
+            background-color: rgba(49, 130, 206, 0.1);
         }
         .top-menu a.nav-link {
             color: #2d3748;
@@ -149,6 +187,69 @@
             flex-direction: column;
             align-items: center;
         }
+
+        /* Mobile Responsive Styles */
+        @media (max-width: 768px) {
+            .top-menu {
+                padding: 0.75rem 1rem;
+            }
+            .menu-links {
+                display: none;
+            }
+            .mobile-menu-btn {
+                display: flex;
+            }
+            .get-app-btn {
+                padding: 0.5rem 1rem;
+                font-size: 0.9rem;
+            }
+            .gradient-bg {
+                padding: 6rem 1rem 3rem;
+            }
+            .content {
+                margin: 1rem auto;
+                padding: 1.5rem;
+                width: 90%;
+            }
+            h1 {
+                font-size: 2.5rem;
+            }
+            h2 {
+                font-size: 1.5rem;
+                margin: 2rem 0 1rem;
+            }
+            p {
+                font-size: 1rem;
+            }
+            .team-section {
+                flex-direction: column;
+                gap: 1rem;
+            }
+            .team-card {
+                padding: 1rem;
+            }
+            .contact-section {
+                padding: 1.5rem;
+                margin-top: 1.5rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            h1 {
+                font-size: 2rem;
+            }
+            h2 {
+                font-size: 1.25rem;
+            }
+            .content {
+                padding: 1rem;
+                margin: 0.5rem auto;
+                width: 95%;
+            }
+            .contact-section {
+                padding: 1rem;
+            }
+        }
         .contact-icon {
             width: 64px;
             height: 64px;
@@ -241,6 +342,18 @@
             <a href="pricing.html" class="nav-link text-lg">Pricing</a>
             <a href="terms.html" class="nav-link text-lg">Terms</a>
         </div>
+        <div class="mobile-menu-btn" onclick="toggleMobileMenu()">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+        <div class="mobile-menu" id="mobileMenu">
+            <a href="index.html">Home</a>
+            <a href="about.html">About Us</a>
+            <a href="pricing.html">Pricing</a>
+            <a href="terms.html">Terms</a>
+            <a href="https://go.sheetyapp.com" class="font-bold">Get Sheety App</a>
+        </div>
         <a href="https://go.sheetyapp.com" class="get-app-btn">Get Sheety App</a>
     </nav>
     <section class="gradient-bg text-center">
@@ -298,5 +411,24 @@
             </div>
         </div>
     </div>
+
+    <script>
+        function toggleMobileMenu() {
+            const mobileMenu = document.getElementById('mobileMenu');
+            mobileMenu.classList.toggle('active');
+        }
+
+        document.addEventListener('DOMContentLoaded', function() {
+            // Close mobile menu when clicking outside
+            document.addEventListener('click', function(event) {
+                const mobileMenu = document.getElementById('mobileMenu');
+                const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
+                
+                if (!mobileMenuBtn.contains(event.target) && !mobileMenu.contains(event.target)) {
+                    mobileMenu.classList.remove('active');
+                }
+            });
+        });
+    </script>
 </body>
 </html>
