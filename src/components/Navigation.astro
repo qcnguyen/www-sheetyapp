@@ -1,12 +1,12 @@
 ---
-
+const currentPath = Astro.url.pathname;
 ---
 
 <nav class="top-menu">
 	<div class="menu-links">
-		<a href="/" class="nav-link text-lg">Home</a>
-		<a href="/about" class="nav-link text-lg">About Us</a>
-		<a href="/terms" class="nav-link text-lg">Terms</a>
+		<a href="/" class={`nav-link text-lg ${currentPath === '/' ? 'active' : ''}`}>Home</a>
+		<a href="/about" class={`nav-link text-lg ${currentPath === '/about' || currentPath === '/about/' ? 'active' : ''}`}>About Us</a>
+		<a href="/terms" class={`nav-link text-lg ${currentPath === '/terms' || currentPath === '/terms/' ? 'active' : ''}`}>Terms</a>
 	</div>
 	<div class="mobile-menu-btn" onclick="toggleMobileMenu()">
 		<span></span>
@@ -14,9 +14,9 @@
 		<span></span>
 	</div>
 	<div class="mobile-menu" id="mobileMenu">
-		<a href="/">Home</a>
-		<a href="/about">About Us</a>
-		<a href="/terms">Terms</a>
+		<a href="/" class={currentPath === '/' ? 'active' : ''}>Home</a>
+		<a href="/about" class={currentPath === '/about' || currentPath === '/about/' ? 'active' : ''}>About Us</a>
+		<a href="/terms" class={currentPath === '/terms' || currentPath === '/terms/' ? 'active' : ''}>Terms</a>
 		<a href="https://go.sheetyapp.com" class="font-bold">Get Sheety App</a>
 	</div>
 	<a href="https://go.sheetyapp.com" class="get-app-btn">Get Sheety App</a>
