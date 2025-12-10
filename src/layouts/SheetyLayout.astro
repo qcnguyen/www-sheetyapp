@@ -274,6 +274,209 @@ const { title, description } = Astro.props;
 				line-height: 1.6;
 				color: #4a5568;
 			}
+			
+			/* Comparison Section Styles */
+			.comparison-section {
+				padding: 4rem 2rem;
+				background: linear-gradient(135deg, #f7fafc, #edf2f7);
+			}
+			.content-wrapper-wide {
+				max-width: 1000px;
+				margin: 0 auto;
+				background-color: rgba(255, 255, 255, 0.9);
+				padding: 2.5rem;
+				border-radius: 1rem;
+				box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+				border: 1px solid rgba(255, 255, 255, 0.5);
+			}
+			.content-wrapper-wide h2 {
+				font-size: 2.5rem;
+				color: #3182ce;
+				margin-bottom: 1rem;
+				text-align: center;
+			}
+			.comparison-intro {
+				font-size: 1.2rem;
+				line-height: 1.6;
+				color: #4a5568;
+				text-align: center;
+				margin-bottom: 2rem;
+			}
+			.comparison-table-wrapper {
+				overflow-x: auto;
+				margin-top: 2rem;
+			}
+			.comparison-table {
+				width: 100%;
+				border-collapse: collapse;
+				background: white;
+				border-radius: 0.5rem;
+				overflow: hidden;
+				box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+			}
+			.comparison-table thead {
+				background: linear-gradient(90deg, #3182ce, #38b2ac);
+			}
+			.comparison-table th {
+				padding: 1.25rem 1rem;
+				text-align: left;
+				color: white;
+				font-weight: 700;
+				font-size: 1.1rem;
+				text-transform: uppercase;
+				letter-spacing: 0.05em;
+			}
+			.comparison-table th.feature-column {
+				width: 50%;
+			}
+			.comparison-table th.excel-column,
+			.comparison-table th.sheety-column {
+				width: 25%;
+				text-align: center;
+			}
+			.comparison-table tbody tr {
+				border-bottom: 1px solid #e2e8f0;
+				transition: background-color 0.2s ease;
+			}
+			.comparison-table tbody tr:hover {
+				background-color: #f7fafc;
+			}
+			.comparison-table tbody tr.exclusive-row {
+				background-color: rgba(49, 130, 206, 0.02);
+			}
+			.comparison-table tbody tr.exclusive-row:hover {
+				background-color: rgba(49, 130, 206, 0.05);
+			}
+			.comparison-table td {
+				padding: 1rem;
+				color: #2d3748;
+			}
+			.comparison-table td.feature-name {
+				font-weight: 500;
+				font-size: 1rem;
+			}
+			.comparison-table td.has-feature {
+				text-align: center;
+				font-size: 1.5rem;
+				color: #38b2ac;
+				font-weight: bold;
+			}
+			.comparison-table td.has-feature.highlight {
+				color: #3182ce;
+				font-size: 1.8rem;
+			}
+			.comparison-table td.no-feature {
+				text-align: center;
+				font-size: 1.5rem;
+				color: #cbd5e0;
+				font-weight: bold;
+			}
+			.comparison-table td.roadmap-feature {
+				text-align: center;
+				font-size: 1.5rem;
+				color: #ed8936;
+				font-weight: bold;
+				cursor: help;
+				animation: pulse-roadmap 2s ease-in-out infinite;
+			}
+			@keyframes pulse-roadmap {
+				0%, 100% { opacity: 1; }
+				50% { opacity: 0.6; }
+			}
+			.legend {
+				display: flex;
+				justify-content: center;
+				gap: 2rem;
+				margin-top: 1.5rem;
+				flex-wrap: wrap;
+			}
+			.legend-item {
+				display: flex;
+				align-items: center;
+				gap: 0.5rem;
+				font-size: 0.95rem;
+				color: #4a5568;
+				font-weight: 500;
+			}
+			.legend-icon {
+				font-size: 1.2rem;
+				font-weight: bold;
+			}
+			.legend-icon.available {
+				color: #38b2ac;
+			}
+			.legend-icon.roadmap {
+				color: #ed8936;
+			}
+			.legend-icon.unavailable {
+				color: #cbd5e0;
+			}
+			.comparison-table tr.divider-row {
+				height: 0.5rem;
+				background: linear-gradient(90deg, rgba(49, 130, 206, 0.1), rgba(56, 178, 172, 0.1));
+			}
+			.comparison-table tr.divider-row td {
+				padding: 0;
+			}
+			
+			/* Old Comparison Grid Styles - Remove if not used elsewhere */
+			.comparison-grid {
+				display: grid;
+				grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+				gap: 1.5rem;
+				margin-top: 2rem;
+			}
+			.comparison-card {
+				background: rgba(255, 255, 255, 0.7);
+				padding: 1.5rem;
+				border-radius: 0.75rem;
+				box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+				transition: transform 0.3s ease, box-shadow 0.3s ease;
+				border: 2px solid transparent;
+			}
+			.comparison-card:hover {
+				transform: translateY(-5px);
+				box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+			}
+			.comparison-card.highlight {
+				border-color: rgba(49, 130, 206, 0.3);
+				background: linear-gradient(135deg, rgba(255, 255, 255, 0.9), rgba(49, 130, 206, 0.05));
+			}
+			.feature-title {
+				font-size: 1.5rem;
+				margin-bottom: 1rem;
+				font-weight: 700;
+			}
+			.feature-title.shared {
+				color: #38b2ac;
+			}
+			.feature-title.exclusive {
+				color: #3182ce;
+				background: linear-gradient(90deg, #3182ce, #38b2ac);
+				-webkit-background-clip: text;
+				background-clip: text;
+				color: transparent;
+			}
+			.feature-list {
+				list-style: none;
+				padding: 0;
+				margin: 0;
+			}
+			.feature-list li {
+				padding: 0.5rem 0 0.5rem 1.5rem;
+				position: relative;
+				color: #2d3748;
+				font-size: 1rem;
+				line-height: 1.5;
+			}
+			.feature-list li:before {
+				content: '•';
+				position: absolute;
+				left: 0;
+				color: #3182ce;
+				font-weight: bold;
+				font-size: 1.2rem;
+			}
 
 			/* Common content styles */
 			.content h1 {
@@ -471,6 +674,58 @@ const { title, description } = Astro.props;
 					padding: 1.5rem;
 					margin: 0 1rem;
 				}
+				.comparison-section {
+					padding: 2rem 1rem;
+				}
+				.content-wrapper-wide {
+					padding: 1.5rem;
+				}
+				.content-wrapper-wide h2 {
+					font-size: 1.8rem;
+				}
+				.comparison-intro {
+					font-size: 1rem;
+				}
+				.comparison-table th,
+				.comparison-table td {
+					padding: 0.75rem 0.5rem;
+					font-size: 0.9rem;
+				}
+				.comparison-table th {
+					font-size: 0.85rem;
+				}
+				.comparison-table td.has-feature {
+					font-size: 1.3rem;
+				}
+				.comparison-table td.has-feature.highlight {
+					font-size: 1.5rem;
+				}
+				.comparison-table td.no-feature {
+					font-size: 1.3rem;
+				}
+				.comparison-table td.roadmap-feature {
+					font-size: 1.3rem;
+				}
+				.legend {
+					gap: 1rem;
+				}
+				.legend-item {
+					font-size: 0.85rem;
+				}
+				.comparison-grid {
+					grid-template-columns: 1fr;
+					gap: 1rem;
+				}
+				.comparison-card {
+					padding: 1rem;
+				}
+				.feature-title {
+					font-size: 1.3rem;
+				}
+				.feature-list li {
+					font-size: 0.95rem;
+					padding: 0.4rem 0 0.4rem 1.2rem;
+				}
 				.tagline {
 					font-size: 1.2rem;
 				}
@@ -519,6 +774,50 @@ const { title, description } = Astro.props;
 				.content-wrapper {
 					padding: 1rem;
 					margin: 0 0.5rem;
+				}
+				.comparison-section {
+					padding: 1.5rem 0.5rem;
+				}
+				.content-wrapper-wide {
+					padding: 1rem;
+				}
+				.content-wrapper-wide h2 {
+					font-size: 1.5rem;
+				}
+				.comparison-intro {
+					font-size: 0.95rem;
+				}
+				.comparison-table th,
+				.comparison-table td {
+					padding: 0.6rem 0.4rem;
+					font-size: 0.85rem;
+				}
+				.comparison-table th {
+					font-size: 0.75rem;
+				}
+				.comparison-table td.feature-name {
+					font-size: 0.85rem;
+				}
+				.comparison-table td.has-feature {
+					font-size: 1.2rem;
+				}
+				.comparison-table td.has-feature.highlight {
+					font-size: 1.4rem;
+				}
+				.comparison-table td.no-feature {
+					font-size: 1.2rem;
+				}
+				.comparison-table td.roadmap-feature {
+					font-size: 1.2rem;
+				}
+				.legend {
+					gap: 0.75rem;
+				}
+				.legend-item {
+					font-size: 0.8rem;
+				}
+				.legend-icon {
+					font-size: 1rem;
 				}
 				.tagline {
 					font-size: 1rem;
