@@ -42,9 +42,9 @@ import Navigation from '../components/Navigation.astro';
 
 	<div class="section-spacer"></div>
 
-	<section class="comparison-section">
+	<section id="comparison" class="comparison-section">
 		<div class="content-wrapper-wide">
-			<h2>Beyond Traditional Spreadsheets</h2>
+			<h2><a href="#comparison" class="section-link">Beyond Traditional Spreadsheets</a></h2>
 			<p class="comparison-intro">While Excel and traditional spreadsheets are powerful, Sheety App takes data management to the next level. Here's how we compare:</p>
 			
 			<div class="comparison-table-wrapper">
@@ -78,6 +78,11 @@ import Navigation from '../components/Navigation.astro';
 							<td class="roadmap-feature" title="Coming Soon">◐</td>
 						</tr>
 						<tr>
+							<td class="feature-name">Data validation/ constraints</td>
+							<td class="no-feature">✗</td>
+							<td class="has-feature">✓</td>
+						</tr>
+						<tr>
 							<td class="feature-name">Permission control</td>
 							<td class="no-feature">✗</td>
 							<td class="has-feature">✓</td>
@@ -102,7 +107,11 @@ import Navigation from '../components/Navigation.astro';
 							<td class="no-feature">✗</td>
 							<td class="has-feature">✓</td>
 						</tr>
-						
+						<tr class="exclusive-row">
+							<td class="feature-name">Webhook integration</td>
+							<td class="no-feature">✗</td>
+							<td class="roadmap-feature" title="Coming Soon">◐</td>
+						</tr>
 						<tr class="exclusive-row">
 							<td class="feature-name">Mobile App</td>
 							<td class="no-feature">✗</td>
@@ -132,13 +141,6 @@ import Navigation from '../components/Navigation.astro';
 
 	<div class="section-spacer"></div>
 
-	<div id="floating-cta" class="floating-cta-container">
-		<p class="tagline">Let's Get Sheet Done!</p>
-		<a href="https://go.sheetyapp.com" class="get-started-btn">
-			<img src="/logo-64.png" alt="SheetyApp Logo" class="w-6 h-6 object-contain">
-			Get Started
-		</a>
-	</div>
 
 	<script>
 		document.addEventListener('DOMContentLoaded', function() {
@@ -155,13 +157,6 @@ import Navigation from '../components/Navigation.astro';
 					parallaxBg.style.transform = `translateY(${distance * 0.5}px)`;
 				});
 
-				// Handle floating CTA visibility
-				const ctaBottom = ctaContainer.getBoundingClientRect().bottom;
-				if (ctaBottom < 0) {
-					floatingCta.classList.add('visible');
-				} else {
-					floatingCta.classList.remove('visible');
-				}
 			});
 		});
 	</script>

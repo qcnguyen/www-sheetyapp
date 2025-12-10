@@ -295,6 +295,25 @@ const { title, description } = Astro.props;
 				margin-bottom: 1rem;
 				text-align: center;
 			}
+			.section-link {
+				color: #3182ce;
+				text-decoration: none;
+				transition: all 0.3s ease;
+				position: relative;
+			}
+			.section-link:hover {
+				color: #2c5aa0;
+			}
+			.section-link:after {
+				content: ' #';
+				opacity: 0;
+				transition: opacity 0.3s ease;
+				color: #38b2ac;
+				font-size: 0.8em;
+			}
+			.section-link:hover:after {
+				opacity: 0.6;
+			}
 			.comparison-intro {
 				font-size: 1.2rem;
 				line-height: 1.6;
