@@ -1,0 +1,42 @@
+---
+
+---
+
+<nav class="top-menu">
+	<div class="menu-links">
+		<a href="/" class="nav-link text-lg">Home</a>
+		<a href="/about" class="nav-link text-lg">About Us</a>
+		<a href="/terms" class="nav-link text-lg">Terms</a>
+	</div>
+	<div class="mobile-menu-btn" onclick="toggleMobileMenu()">
+		<span></span>
+		<span></span>
+		<span></span>
+	</div>
+	<div class="mobile-menu" id="mobileMenu">
+		<a href="/">Home</a>
+		<a href="/about">About Us</a>
+		<a href="/terms">Terms</a>
+		<a href="https://go.sheetyapp.com" class="font-bold">Get Sheety App</a>
+	</div>
+	<a href="https://go.sheetyapp.com" class="get-app-btn">Get Sheety App</a>
+</nav>
+
+<script>
+	function toggleMobileMenu() {
+		const mobileMenu = document.getElementById('mobileMenu');
+		mobileMenu.classList.toggle('active');
+	}
+
+	document.addEventListener('DOMContentLoaded', function() {
+		// Close mobile menu when clicking outside
+		document.addEventListener('click', function(event) {
+			const mobileMenu = document.getElementById('mobileMenu');
+			const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
+			
+			if (!mobileMenuBtn.contains(event.target) && !mobileMenu.contains(event.target)) {
+				mobileMenu.classList.remove('active');
+			}
+		});
+	});
+</script>
