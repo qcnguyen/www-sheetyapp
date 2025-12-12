@@ -11,13 +11,6 @@ import Navigation from '../components/Navigation.astro';
 			<h1 class="drop-shadow-lg">You don't need a spreadsheet!</h1>
 			<h2 class="subtitle drop-shadow-md">You need Sheety App.</h2>
 		</div>
-		<div class="cta-container">
-			<p class="tagline">Let's Get Sheet Done!</p>
-			<a href="https://go.sheetyapp.com" class="get-started-btn">
-				<img src="/logo-64.png" alt="SheetyApp Logo" class="w-6 h-6 object-contain">
-				Get Started
-			</a>
-		</div>
 	</section>
 
 	<div class="section-spacer"></div>
@@ -139,9 +132,9 @@ import Navigation from '../components/Navigation.astro';
 		</div>
 	</section>
 
-	<section class="parallax-section">
+	<section class="parallax-section" style="padding: 3rem 0 6rem 0;">
 		<div class="parallax-bg" style="background: linear-gradient(135deg, #2a4365, #3182ce, #38b2ac);"></div>
-		<div class="content-wrapper" style="max-width: 900px; width: 90%;">
+		<div class="content-wrapper" style="max-width: 900px; width: 90%; margin-bottom: 3rem;">
 			<h2 style="margin-bottom: 1.5rem; text-align: center;">See Sheety App in Action</h2>
 			<div class="video-container" style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; max-width: 100%; border-radius: 8px; box-shadow: 0 8px 32px rgba(0,0,0,0.3); background: #000; margin-top: 1rem;">
 				<iframe 
@@ -155,10 +148,21 @@ import Navigation from '../components/Navigation.astro';
 				</iframe>
 			</div>
 		</div>
+		
+		<div class="text-center px-4 sm:px-6" style="position: relative; z-index: 2; margin-top: 3rem; margin-bottom: 3rem;">
+			<div class="max-w-3xl mx-auto">
+				<h3 class="text-2xl sm:text-3xl md:text-4xl font-bold mb-3 sm:mb-4 text-white drop-shadow-lg leading-tight">Ready to Get Sheet Done?</h3>
+				<p class="text-base sm:text-lg md:text-xl mb-6 sm:mb-8 text-white drop-shadow-md px-2">Join thousands of users who've already transformed their data workflow</p>
+				<a href="https://go.sheetyapp.com" class="inline-flex flex-col items-center gap-3 sm:gap-4 bg-white font-bold px-6 sm:px-12 py-6 sm:py-8 rounded-3xl hover:bg-opacity-95 transition-all duration-300 hover:scale-105 shadow-2xl" style="border: 4px solid rgba(49, 130, 206, 0.3); max-width: 100%;">
+					<div class="flex flex-wrap justify-center items-center gap-2 lg:gap-3" style="max-width: 100%;">
+						<img src="/logo-256.png" alt="SheetyApp Logo" class="w-12 h-12 lg:w-16 lg:h-16 object-contain">
+						<span class="brand-name text-2xl lg:text-3xl xl:text-4xl whitespace-nowrap">Sheety App</span>
+					</div>
+					<span class="text-blue-600 text-base sm:text-lg font-semibold">Start Free Today →</span>
+				</a>
+			</div>
+		</div>
 	</section>
-
-	<div class="section-spacer"></div>
-
 
 	<script>
 		document.addEventListener('DOMContentLoaded', function() {
