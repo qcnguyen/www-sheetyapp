@@ -1,0 +1,43 @@
+---
+import SheetyLayout from '../layouts/SheetyLayout.astro';
+import Navigation from '../components/Navigation.astro';
+---
+
+<SheetyLayout title="404 - Page Not Found | Sheety App" description="The page you're looking for doesn't exist.">
+	<Navigation />
+	
+	<section class="gradient-bg hero-section text-white flex flex-col items-center justify-center min-h-screen text-center p-6 relative">
+		<div class="max-w-2xl flex flex-col items-center">
+			<h1 class="drop-shadow-lg text-9xl font-bold mb-4">404</h1>
+			<h2 class="subtitle drop-shadow-md mb-8">Oops! This page doesn't exist.</h2>
+			<div class="flex gap-4 flex-wrap justify-center">
+				<a href="/" class="cta-button bg-white text-blue-700 hover:bg-gray-100 px-8 py-3 rounded-lg font-semibold transition-all shadow-lg hover:shadow-xl">
+					Go Home
+				</a>
+			</div>
+		</div>
+	</section>
+
+	<style>
+		.cta-button {
+			display: inline-block;
+			text-decoration: none;
+			transition: all 0.3s ease;
+		}
+		
+		.cta-button:hover {
+			transform: translateY(-2px);
+		}
+		
+		h1 {
+			font-size: clamp(4rem, 15vw, 9rem);
+			line-height: 1;
+		}
+		
+		@media (max-width: 640px) {
+			.cta-button {
+				width: 100%;
+			}
+		}
+	</style>
+</SheetyLayout>
