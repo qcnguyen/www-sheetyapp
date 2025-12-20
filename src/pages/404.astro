@@ -3,7 +3,11 @@ import SheetyLayout from '../layouts/SheetyLayout.astro';
 import Navigation from '../components/Navigation.astro';
 ---
 
-<SheetyLayout title="404 - Page Not Found | Sheety App" description="The page you're looking for doesn't exist.">
+<SheetyLayout 
+	title="404 - Page Not Found | Sheety App" 
+	description="The page you're looking for doesn't exist. Return to Sheety App homepage or explore our data management solutions."
+	noindex={true}
+>
 	<Navigation />
 	
 	<section class="gradient-bg hero-section text-white flex flex-col items-center justify-center min-h-screen text-center p-6 relative">

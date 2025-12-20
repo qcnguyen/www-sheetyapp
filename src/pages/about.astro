@@ -1,9 +1,38 @@
 ---
 import SheetyLayout from '../layouts/SheetyLayout.astro';
 import Navigation from '../components/Navigation.astro';
+
+const structuredData = {
+	"@context": "https://schema.org",
+	"@type": "AboutPage",
+	"mainEntity": {
+		"@type": "Organization",
+		"name": "Sheety App",
+		"url": "https://sheetyapp.com",
+		"logo": "https://sheetyapp.com/logo-512.png",
+		"description": "Empowering individuals and teams to achieve more by simplifying their data management processes.",
+		"contactPoint": [
+			{
+				"@type": "ContactPoint",
+				"email": "admin@sheetyapp.com",
+				"contactType": "Customer Support"
+			}
+		],
+		"sameAs": [
+			"https://www.facebook.com/quoc.nguyen.439926",
+			"https://x.com/quocnguyen_will",
+			"https://discord.gg/v23GJkDT"
+		]
+	}
+};
 ---
 
-<SheetyLayout title="About Us - Sheety App" description="Learn more about Sheety App and our mission to revolutionize the way you manage data.">
+<SheetyLayout 
+	title="About Us - Sheety App | Our Mission & Vision" 
+	description="Learn about Sheety App's mission to revolutionize data management. Discover our commitment to providing intuitive, powerful tools that eliminate complex spreadsheets and empower teams worldwide."
+	keywords="about Sheety App, data management mission, spreadsheet alternative, team collaboration tools"
+>
+	<script type="application/ld+json" set:html={JSON.stringify(structuredData)} />
 	<Navigation />
 	
 	<section class="gradient-bg text-center">
@@ -73,7 +102,7 @@ import Navigation from '../components/Navigation.astro';
 						<path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-5.2 1.74 2.89 2.89 0 0 1 2.31-4.64 2.93 2.93 0 0 1 .88.13V9.4a6.84 6.84 0 0 0-1-.05A6.33 6.33 0 0 0 5 20.1a6.34 6.34 0 0 0 10.86-4.43v-7a8.16 8.16 0 0 0 4.77 1.52v-3.4a4.85 4.85 0 0 1-1-.1z"/>
 					</svg>
 				</span>
-			</div>
+		</div>
 		</div>
 	</div>
 </SheetyLayout>

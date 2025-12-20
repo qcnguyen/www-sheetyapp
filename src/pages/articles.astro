@@ -8,9 +8,40 @@ import { articles } from '../data/articles';
 const sortedArticles = articles.sort((a, b) => 
   new Date(b.date).getTime() - new Date(a.date).getTime()
 );
+
+const structuredData = {
+	"@context": "https://schema.org",
+	"@type": "CollectionPage",
+	"name": "Articles & Tutorials",
+	"description": "Discover tips, tutorials, and best practices for building with Sheety App",
+	"url": "https://sheetyapp.com/articles",
+	"mainEntity": {
+		"@type": "ItemList",
+		"itemListElement": sortedArticles.map((article, index) => ({
+			"@type": "ListItem",
+			"position": index + 1,
+			"item": {
+				"@type": "Article",
+				"headline": article.title,
+				"description": article.excerpt,
+				"url": `https://sheetyapp.com/articles/${article.slug}`,
+				"datePublished": article.date,
+				"author": {
+					"@type": "Person",
+					"name": article.author
+				}
+			}
+		}))
+	}
+};
 ---
 
-<SheetyLayout title="Articles | Sheety" description="Read the latest articles, tutorials, and guides about Sheety and building with APIs.">
+<SheetyLayout 
+	title="Articles & Tutorials | Sheety App Blog" 
+	description="Read the latest articles, tutorials, and guides about Sheety App. Learn best practices for data management, API integration, workflow automation, and building powerful data-driven applications."
+	keywords="Sheety tutorials, data management guides, API integration, spreadsheet tips, workflow automation, data visualization tutorials"
+>
+	<script type="application/ld+json" set:html={JSON.stringify(structuredData)} />
   <Navigation />
   
   <section class="gradient-bg text-center">

@@ -1,9 +1,31 @@
 ---
 import SheetyLayout from '../layouts/SheetyLayout.astro';
 import Navigation from '../components/Navigation.astro';
+
+const structuredData = {
+	"@context": "https://schema.org",
+	"@type": "WebPage",
+	"name": "Terms of Service & Privacy Policy",
+	"description": "Sheety App's Terms of Service, Privacy Policy, Acceptable Use Policy, and Data Processing Agreement. Learn about our commitment to transparency and your rights.",
+	"url": "https://sheetyapp.com/terms",
+	"datePublished": "2025-05-26",
+	"dateModified": "2025-05-26",
+	"publisher": {
+		"@type": "Organization",
+		"name": "Sheety App",
+		"url": "https://sheetyapp.com"
+	}
+};
 ---
 
-<SheetyLayout title="Terms & Policies - Sheety App" description="Our commitment to transparency and your rights">
+<SheetyLayout 
+	title="Terms of Service & Privacy Policy - Sheety App" 
+	description="Read Sheety App's comprehensive Terms of Service, Privacy Policy, and data protection commitments. Learn about your rights, data security, acceptable use, billing policies, and how we protect your information."
+	keywords="terms of service, privacy policy, data protection, acceptable use policy, GDPR compliance, data security"
+	publishedTime="2025-05-26T00:00:00Z"
+	modifiedTime="2025-05-26T00:00:00Z"
+>
+	<script type="application/ld+json" set:html={JSON.stringify(structuredData)} />
 	<Navigation />
 	
 	<section class="gradient-bg text-center">
@@ -13,7 +35,7 @@ import Navigation from '../components/Navigation.astro';
 	
 	<div class="content">
 		<div class="effective-date">
-			<strong>Effective Date:</strong> May 26, 2025 | <strong>Last Updated:</strong> May 26, 2025
+			<strong>Effective Date:</strong> <time datetime="2025-05-26">May 26, 2025</time> | <strong>Last Updated:</strong> <time datetime="2025-05-26">May 26, 2025</time>
 		</div>
 
 		<div class="toc">

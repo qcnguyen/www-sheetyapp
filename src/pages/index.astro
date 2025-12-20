@@ -1,9 +1,65 @@
 ---
 import SheetyLayout from '../layouts/SheetyLayout.astro';
 import Navigation from '../components/Navigation.astro';
+
+const structuredData = {
+	"@context": "https://schema.org",
+	"@graph": [
+		{
+			"@type": "Organization",
+			"@id": "https://sheetyapp.com/#organization",
+			"name": "Sheety App",
+			"url": "https://sheetyapp.com",
+			"logo": {
+				"@type": "ImageObject",
+				"url": "https://sheetyapp.com/logo-512.png",
+				"width": 512,
+				"height": 512
+			},
+			"sameAs": [
+				"https://www.facebook.com/quoc.nguyen.439926",
+				"https://x.com/quocnguyen_will",
+				"https://discord.gg/v23GJkDT"
+			],
+			"contactPoint": {
+				"@type": "ContactPoint",
+				"email": "admin@sheetyapp.com",
+				"contactType": "Customer Support"
+			}
+		},
+		{
+			"@type": "WebSite",
+			"@id": "https://sheetyapp.com/#website",
+			"url": "https://sheetyapp.com",
+			"name": "Sheety App",
+			"description": "Transform your data management with intuitive spreadsheet-like interfaces, real-time collaboration, and interactive dashboards.",
+			"publisher": {
+				"@id": "https://sheetyapp.com/#organization"
+			}
+		},
+		{
+			"@type": "SoftwareApplication",
+			"name": "Sheety App",
+			"applicationCategory": "BusinessApplication",
+			"operatingSystem": "Web",
+			"offers": {
+				"@type": "Offer",
+				"price": "0",
+				"priceCurrency": "USD"
+			},
+			"description": "Powerful data manipulation platform with dynamic applications, real-time collaboration, and advanced workflow automation."
+		}
+	]
+};
 ---
 
-<SheetyLayout title="Sheety App - Get Sheet Done">
+<SheetyLayout 
+	title="Sheety App - Get Sheet Done | Data Management Made Simple"
+	description="Transform your data management with Sheety App. Powerful spreadsheet-like interface with real-time collaboration, interactive dashboards, API integration, and advanced automation. Start free today!"
+	keywords="data management, spreadsheet alternative, real-time collaboration, data visualization, workflow automation, API integration, interactive dashboards, Sheety App"
+	ogType="website"
+>
+	<script type="application/ld+json" set:html={JSON.stringify(structuredData)} />
 	<Navigation />
 	
 	<section id="hero-section" class="gradient-bg hero-section text-white flex flex-col items-center justify-center min-h-screen text-center p-6 relative">
