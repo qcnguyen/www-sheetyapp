@@ -1,0 +1,352 @@
+---
+title: Using Sheety with JavaScript
+description: Learn how to integrate Sheety API with JavaScript applications
+slug: docs/guides/javascript
+---
+
+# Using Sheety with JavaScript
+
+This guide demonstrates how to integrate Sheety into your JavaScript applications.
+
+## Installation
+
+No installation required! Sheety works with native `fetch` API or any HTTP client library.
+
+### Using Fetch API (Native)
+
+```javascript
+// Modern browsers support fetch natively
+fetch('https://api.sheety.co/your-username/your-project/sheet1')
+  .then(response => response.json())
+  .then(data => console.log(data));
+```
+
+### Using Axios (Optional)
+
+```bash
+npm install axios
+```
+
+```javascript
+import axios from 'axios';
+
+axios.get('https://api.sheety.co/your-username/your-project/sheet1')
+  .then(response => console.log(response.data));
+```
+
+## Basic Examples
+
+### Reading Data
+
+```javascript
+async function fetchUsers() {
+  const response = await fetch('https://api.sheety.co/john/myproject/users');
+  const data = await response.json();
+  return data.users;
+}
+
+// Usage
+fetchUsers().then(users => {
+  users.forEach(user => {
+    console.log(`${user.name} - ${user.email}`);
+  });
+});
+```
+
+### Creating Data
+
+```javascript
+async function createUser(name, email, age) {
+  const response = await fetch('https://api.sheety.co/john/myproject/users', {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+      'Authorization': 'Bearer YOUR_API_KEY'
+    },
+    body: JSON.stringify({
+      user: { name, email, age }
+    })
+  });
+  
+  return await response.json();
+}
+
+// Usage
+createUser('Alice Brown', 'alice@example.com', 28)
+  .then(result => console.log('Created:', result.user));
+```
+
+### Updating Data
+
+```javascript
+async function updateUser(id, updates) {
+  const response = await fetch(`https://api.sheety.co/john/myproject/users/${id}`, {
+    method: 'PUT',
+    headers: {
+      'Content-Type': 'application/json',
+      'Authorization': 'Bearer YOUR_API_KEY'
+    },
+    body: JSON.stringify({
+      user: updates
+    })
+  });
+  
+  return await response.json();
+}
+
+// Usage
+updateUser(2, { age: 29 })
+  .then(result => console.log('Updated:', result.user));
+```
+
+### Deleting Data
+
+```javascript
+async function deleteUser(id) {
+  const response = await fetch(`https://api.sheety.co/john/myproject/users/${id}`, {
+    method: 'DELETE',
+    headers: {
+      'Authorization': 'Bearer YOUR_API_KEY'
+    }
+  });
+  
+  return await response.json();
+}
+
+// Usage
+deleteUser(3)
+  .then(result => console.log('Deleted successfully'));
+```
+
+## Complete API Client Class
+
+Here's a reusable class for managing Sheety API calls:
+
+```javascript
+class SheetyClient {
+  constructor(username, project, apiKey = null) {
+    this.baseUrl = `https://api.sheety.co/${username}/${project}`;
+    this.apiKey = apiKey;
+  }
+
+  getHeaders() {
+    const headers = {
+      'Content-Type': 'application/json'
+    };
+    
+    if (this.apiKey) {
+      headers['Authorization'] = `Bearer ${this.apiKey}`;
+    }
+    
+    return headers;
+  }
+
+  async get(sheet, id = null) {
+    const url = id 
+      ? `${this.baseUrl}/${sheet}/${id}`
+      : `${this.baseUrl}/${sheet}`;
+      
+    const response = await fetch(url, {
+      headers: this.getHeaders()
+    });
+    
+    if (!response.ok) {
+      throw new Error(`HTTP error! status: ${response.status}`);
+    }
+    
+    return await response.json();
+  }
+
+  async create(sheet, data) {
+    const response = await fetch(`${this.baseUrl}/${sheet}`, {
+      method: 'POST',
+      headers: this.getHeaders(),
+      body: JSON.stringify({ [sheet]: data })
+    });
+    
+    if (!response.ok) {
+      throw new Error(`HTTP error! status: ${response.status}`);
+    }
+    
+    return await response.json();
+  }
+
+  async update(sheet, id, data) {
+    const response = await fetch(`${this.baseUrl}/${sheet}/${id}`, {
+      method: 'PUT',
+      headers: this.getHeaders(),
+      body: JSON.stringify({ [sheet]: data })
+    });
+    
+    if (!response.ok) {
+      throw new Error(`HTTP error! status: ${response.status}`);
+    }
+    
+    return await response.json();
+  }
+
+  async delete(sheet, id) {
+    const response = await fetch(`${this.baseUrl}/${sheet}/${id}`, {
+      method: 'DELETE',
+      headers: this.getHeaders()
+    });
+    
+    if (!response.ok) {
+      throw new Error(`HTTP error! status: ${response.status}`);
+    }
+    
+    return await response.json();
+  }
+}
+
+// Usage
+const client = new SheetyClient('john', 'myproject', 'YOUR_API_KEY');
+
+// Get all users
+client.get('users').then(data => console.log(data));
+
+// Get single user
+client.get('users', 2).then(data => console.log(data));
+
+// Create user
+client.create('users', {
+  name: 'Charlie',
+  email: 'charlie@example.com',
+  age: 32
+}).then(data => console.log(data));
+
+// Update user
+client.update('users', 2, { age: 30 }).then(data => console.log(data));
+
+// Delete user
+client.delete('users', 3).then(data => console.log(data));
+```
+
+## React Integration
+
+### Using with React Hooks
+
+```javascript
+import { useState, useEffect } from 'react';
+
+function UserList() {
+  const [users, setUsers] = useState([]);
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    fetch('https://api.sheety.co/john/myproject/users')
+      .then(response => response.json())
+      .then(data => {
+        setUsers(data.users);
+        setLoading(false);
+      })
+      .catch(error => {
+        console.error('Error:', error);
+        setLoading(false);
+      });
+  }, []);
+
+  if (loading) return <div>Loading...</div>;
+
+  return (
+    <ul>
+      {users.map(user => (
+        <li key={user.id}>
+          {user.name} - {user.email}
+        </li>
+      ))}
+    </ul>
+  );
+}
+```
+
+### Custom React Hook
+
+```javascript
+import { useState, useEffect } from 'react';
+
+function useSheety(username, project, sheet) {
+  const [data, setData] = useState(null);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
+
+  useEffect(() => {
+    const url = `https://api.sheety.co/${username}/${project}/${sheet}`;
+    
+    fetch(url)
+      .then(response => {
+        if (!response.ok) throw new Error('Network response was not ok');
+        return response.json();
+      })
+      .then(data => {
+        setData(data[sheet]);
+        setLoading(false);
+      })
+      .catch(error => {
+        setError(error);
+        setLoading(false);
+      });
+  }, [username, project, sheet]);
+
+  return { data, loading, error };
+}
+
+// Usage
+function App() {
+  const { data: users, loading, error } = useSheety('john', 'myproject', 'users');
+
+  if (loading) return <div>Loading...</div>;
+  if (error) return <div>Error: {error.message}</div>;
+
+  return (
+    <ul>
+      {users?.map(user => (
+        <li key={user.id}>{user.name}</li>
+      ))}
+    </ul>
+  );
+}
+```
+
+## Error Handling
+
+Always implement proper error handling:
+
+```javascript
+async function fetchWithErrorHandling() {
+  try {
+    const response = await fetch('https://api.sheety.co/john/myproject/users');
+    
+    if (!response.ok) {
+      if (response.status === 401) {
+        throw new Error('Unauthorized - Check your API key');
+      }
+      if (response.status === 429) {
+        throw new Error('Rate limit exceeded - Please try again later');
+      }
+      throw new Error(`HTTP error! status: ${response.status}`);
+    }
+    
+    const data = await response.json();
+    return data;
+  } catch (error) {
+    console.error('Fetch error:', error.message);
+    throw error;
+  }
+}
+```
+
+## Best Practices
+
+1. **Store API keys securely** - Use environment variables
+2. **Handle errors gracefully** - Always check response status
+3. **Implement retry logic** - For transient failures
+4. **Cache responses** - When appropriate
+5. **Use async/await** - For cleaner code
+6. **Validate data** - Before sending to API
+
+## Next Steps
+
+- Learn about [Authentication](/docs/api/authentication/)
+- Explore [API Endpoints](/docs/api/endpoints/)
+- Check out [Best Practices](/docs/guides/best-practices/)

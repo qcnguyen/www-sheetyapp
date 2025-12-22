@@ -1,0 +1,71 @@
+---
+title: Quick Start Guide
+description: Get started with Sheety in minutes
+slug: docs/quick-start
+---
+
+# Quick Start Guide
+
+This guide will help you create your first Sheety API in just a few minutes.
+
+## Step 1: Create a Google Sheet
+
+1. Go to [Google Sheets](https://sheets.google.com)
+2. Create a new spreadsheet
+3. Add some data to your sheet:
+
+```
+| name          | age | occupation  |
+|---------------|-----|-------------|
+| John Doe      | 30  | Developer   |
+| Jane Smith    | 25  | Designer    |
+| Bob Johnson   | 35  | Manager     |
+```
+
+## Step 2: Connect to Sheety
+
+1. Visit [Sheety.co](https://sheety.co)
+2. Sign in with your Google account
+3. Grant Sheety permission to access your Google Sheets
+4. Select the spreadsheet you created
+
+## Step 3: Get Your API Endpoint
+
+Once connected, Sheety will generate a unique API endpoint for your sheet:
+
+```
+https://api.sheety.co/your-username/your-project-name/sheet1
+```
+
+## Step 4: Make Your First API Call
+
+You can now access your data using simple HTTP requests:
+
+```javascript
+fetch('https://api.sheety.co/your-username/your-project-name/sheet1')
+  .then(response => response.json())
+  .then(data => console.log(data));
+```
+
+## Step 5: Add Authentication (Optional)
+
+For production use, secure your API:
+
+1. Go to your project settings
+2. Enable authentication
+3. Copy your API key
+4. Include it in your requests:
+
+```javascript
+fetch('https://api.sheety.co/your-username/your-project-name/sheet1', {
+  headers: {
+    'Authorization': 'Bearer YOUR_API_KEY'
+  }
+})
+```
+
+## Next Steps
+
+- Learn about [API Authentication](/docs/api/authentication/)
+- Explore all available [API Endpoints](/docs/api/endpoints/)
+- Check out [JavaScript integration examples](/docs/guides/javascript/)

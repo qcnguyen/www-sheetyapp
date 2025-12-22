@@ -1,0 +1,130 @@
+---
+title: Authentication
+description: Learn how to secure your Sheety API with authentication
+slug: docs/api/authentication
+---
+
+# API Authentication
+
+Sheety provides multiple authentication methods to secure your API endpoints.
+
+## Authentication Methods
+
+### 1. No Authentication (Public API)
+
+By default, your API is publicly accessible. This is useful for:
+- Public data and read-only access
+- Prototyping and development
+- Non-sensitive information
+
+```javascript
+fetch('https://api.sheety.co/your-username/your-project/sheet1')
+  .then(response => response.json())
+  .then(data => console.log(data));
+```
+
+### 2. Bearer Token Authentication
+
+The most common method. Add your API key to the Authorization header:
+
+```javascript
+fetch('https://api.sheety.co/your-username/your-project/sheet1', {
+  headers: {
+    'Authorization': 'Bearer YOUR_API_KEY',
+    'Content-Type': 'application/json'
+  }
+})
+```
+
+### 3. Basic Authentication
+
+Use HTTP Basic Authentication with your credentials:
+
+```javascript
+const username = 'your-username';
+const password = 'your-password';
+const credentials = btoa(`${username}:${password}`);
+
+fetch('https://api.sheety.co/your-username/your-project/sheet1', {
+  headers: {
+    'Authorization': `Basic ${credentials}`,
+    'Content-Type': 'application/json'
+  }
+})
+```
+
+## Enabling Authentication
+
+1. Navigate to your project dashboard
+2. Click on **Settings**
+3. Select **Authentication**
+4. Choose your preferred method
+5. Copy your credentials
+6. Click **Save Changes**
+
+## Best Practices
+
+- **Never expose API keys** in client-side code
+- **Use environment variables** to store credentials
+- **Rotate keys regularly** for enhanced security
+- **Use HTTPS only** for API requests
+- **Implement rate limiting** on your application side
+
+## Managing API Keys
+
+### Creating a New Key
+
+1. Go to project settings
+2. Click **Generate New Key**
+3. Copy and store it securely (shown only once)
+4. Click **Confirm**
+
+### Revoking a Key
+
+1. Go to project settings
+2. Find the key to revoke
+3. Click **Revoke**
+4. Confirm the action
+
+:::caution
+Revoking a key immediately invalidates it. Any applications using that key will lose access.
+:::
+
+## Example with Authentication
+
+Here's a complete example using Bearer token authentication:
+
+```javascript
+const API_KEY = process.env.SHEETY_API_KEY;
+const API_URL = 'https://api.sheety.co/your-username/your-project/sheet1';
+
+async function getData() {
+  try {
+    const response = await fetch(API_URL, {
+      headers: {
+        'Authorization': `Bearer ${API_KEY}`,
+        'Content-Type': 'application/json'
+      }
+    });
+    
+    if (!response.ok) {
+      throw new Error(`HTTP error! status: ${response.status}`);
+    }
+    
+    const data = await response.json();
+    console.log(data);
+  } catch (error) {
+    console.error('Error fetching data:', error);
+  }
+}
+
+getData();
+```
+
+## Error Codes
+
+| Status Code | Description |
+|-------------|-------------|
+| 401 | Unauthorized - Invalid or missing credentials |
+| 403 | Forbidden - Valid credentials but insufficient permissions |
+| 429 | Too Many Requests - Rate limit exceeded |
