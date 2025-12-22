@@ -1,0 +1,29 @@
+---
+import type { Props } from '@astrojs/starlight/props';
+---
+
+<a href="/docs" class="site-title">
+	<img src="/logo-64.png" alt="Sheety App Logo" width="32" height="32" />
+	<span>Sheety App Documentation</span>
+</a>
+
+<style>
+	.site-title {
+		display: flex;
+		align-items: center;
+		gap: 0.5rem;
+		color: var(--sl-color-white);
+		text-decoration: none;
+		font-weight: 600;
+	}
+	
+	.site-title:hover {
+		color: var(--sl-color-white);
+		opacity: 0.8;
+	}
+	
+	.site-title img {
+		width: 32px;
+		height: 32px;
+	}
+</style>

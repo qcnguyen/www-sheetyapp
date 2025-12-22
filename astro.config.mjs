@@ -12,6 +12,10 @@ export default defineConfig({
             description: 'Official documentation for Sheety - Turn your Google Sheets into a RESTful API',
             logo: {
                 src: './public/logo-64.png',
+                replacesTitle: false,
+            },
+            components: {
+                SiteTitle: './src/components/DocsHeader.astro',
             },
             customCss: [
                 // Relative path to your custom CSS file
