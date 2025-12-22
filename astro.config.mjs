@@ -21,11 +21,6 @@ export default defineConfig({
                 // Relative path to your custom CSS file
             ],
             social: [
-                {
-                    icon: 'github',
-                    label: 'GitHub',
-                    href: 'https://github.com/sheetyapp',
-                },
             ],
             sidebar: [
                 {
