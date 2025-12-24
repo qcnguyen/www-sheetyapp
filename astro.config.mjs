@@ -9,7 +9,7 @@ export default defineConfig({
     integrations: [
         starlight({
             title: 'Sheety Documentation',
-            description: 'Official documentation for Sheety - Turn your Google Sheets into a RESTful API',
+            description: 'Official documentation for Sheety',
             logo: {
                 src: './public/logo-64.png',
                 replacesTitle: false,
@@ -26,22 +26,35 @@ export default defineConfig({
                 {
                     label: 'Getting Started',
                     items: [
-                        { label: 'Introduction', slug: 'docs' },
-                        { label: 'Quick Start', slug: 'docs/quick-start' },
+                        { label: 'Welcome', link: '/docs/' },
+                        { label: 'Quick Start', link: '/docs/getting-started' },
                     ],
                 },
                 {
-                    label: 'API Reference',
+                    label: 'Tutorials',
                     items: [
-                        { label: 'Authentication', slug: 'docs/api/authentication' },
-                        { label: 'Endpoints', slug: 'docs/api/endpoints' },
+                        { 
+                            label: 'Workbooks & Sheets',
+                            collapsed: false,
+                            items: [
+                                { label: 'Creating Your First Workbook', link: '/docs/tutorials/creating-your-first-workbook' },
+                                { label: 'Adding Columns to Your Sheet', link: '/docs/tutorials/adding-columns' },
+                                { label: 'Adding Data to Your Sheet', link: '/docs/tutorials/adding-data' },
+                            ]
+                        },
                     ],
                 },
                 {
-                    label: 'Guides',
+                    label: 'Concepts',
+                    collapsed: true,
+                    autogenerate: { directory: 'concepts' },
+                },
+                {
+                    label: 'Reference',
+                    collapsed: true,
                     items: [
-                        { label: 'Using with JavaScript', slug: 'docs/guides/javascript' },
-                        { label: 'Best Practices', slug: 'docs/guides/best-practices' },
+                        { label: 'Q Expressions', link: '/docs/q-expressions' },
+                        { label: 'Row Actions', link: '/docs/row-actions' },
                     ],
                 },
             ],
