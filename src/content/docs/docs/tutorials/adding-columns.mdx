@@ -1,0 +1,213 @@
+---
+title: Adding Columns to Your Sheet
+description: Learn how to define your data structure by adding columns with different data types
+---
+
+Now that you've created your first workbook and sheet, it's time to define your data structure by adding columns. Columns in Sheety App are like fields in a database table - each column has a name, description, and data type that determines what kind of information it can store.
+
+## What You'll Learn
+
+- How to access the columns management page
+- Creating columns with different data types
+- Understanding available column data types
+- Viewing your columns in the sheet
+
+## Prerequisites
+
+- A workbook with at least one sheet (complete [Creating Your First Workbook](/docs/tutorials/creating-your-first-workbook) if you haven't already)
+
+## Understanding Columns
+
+Before we start adding columns, let's understand what they are:
+
+- **Columns** define the structure of your data (like "Name", "Email", "Department")
+- Each column has a **data type** that determines what values it can store
+- **Column names** should be descriptive and easy to understand
+- You can add, edit, or remove columns at any time
+
+## Step 1: Accessing the Columns Page
+
+When you first create a sheet, it has no columns. You'll see an empty sheet view with a helpful message guiding you to add columns.
+
+![Empty Sheet](/assets/docs/tutorials/adding-columns/01-empty-sheet.png)
+
+There are two ways to access the columns management page:
+
+### Method 1: Using the Sheet Menu
+
+1. Click the **three dots menu** (⋯) next to the sheet name in the breadcrumb
+2. Select **"Columns"** from the dropdown menu
+
+![Sheet Menu](/assets/docs/tutorials/adding-columns/02-sheet-menu.png)
+
+### Method 2: Right-Click on Sheet (Alternative)
+
+You can also right-click anywhere on an empty sheet to access the context menu, though the menu approach is more reliable.
+
+## Step 2: The Columns Management Page
+
+Once you access the Columns page, you'll see:
+
+- A search bar to find columns
+- **"+ COLUMN"** button to add regular columns
+- **"+ COMPUTE COLUMN"** button for calculated columns
+- A list of all existing columns (empty for new sheets)
+
+![Columns Page](/assets/docs/tutorials/adding-columns/03-columns-page.png)
+
+## Step 3: Creating Your First Column
+
+Let's add a "Full Name" column to store employee names.
+
+1. Click the **"CREATE FIRST COLUMN"** button (or "+ COLUMN" if you already have columns)
+
+2. The "Add New Column" dialog appears with four tabs:
+   - **Definition** - Basic column information
+   - **Validation** - Rules for data validation
+   - **Restriction** - Access and permission settings
+   - **Value Suggestion** - Auto-complete options
+
+![Add Column Form](/assets/docs/tutorials/adding-columns/04-add-column-form.png)
+
+3. Fill in the column details on the **Definition** tab:
+   - **Name**: `Full Name`
+   - **Description**: `Employee's full name`
+   - **Data Type**: Select **Text** (already selected by default)
+
+![Add Column Filled](/assets/docs/tutorials/adding-columns/05-add-column-filled.png)
+
+:::tip[Automatic Field Name]
+When you enter a column name, Sheety automatically generates a field name (like "FullName") that will be used in the API and formulas. You can see this displayed below the Name field.
+:::
+
+4. Click **"SAVE"** to create the column
+
+You'll see a success message, and your new column will appear in the list!
+
+![Column Created](/assets/docs/tutorials/adding-columns/06-column-created.png)
+
+## Step 4: Adding More Columns with Different Data Types
+
+Let's add a few more columns to demonstrate the different data types available in Sheety App.
+
+### Adding an Email Column (Text Type)
+
+1. Click **"+ COLUMN"** button at the top
+2. Enter:
+   - **Name**: `Email`
+   - **Description**: `Employee's email address`
+   - **Data Type**: **Text**
+3. Click **"SAVE"**
+
+### Adding a Department Column (Option Type)
+
+The Option data type creates a dropdown list of predefined choices. Perfect for department selections!
+
+1. Click **"+ COLUMN"** button
+2. Enter:
+   - **Name**: `Department`
+   - **Description**: `Employee's department`
+   - **Data Type**: Select **Option**
+
+![Option Type Column](/assets/docs/tutorials/adding-columns/07-option-type.png)
+
+3. When you select "Option", additional fields appear:
+   - **Allow Multi Selection** - checkbox to allow selecting multiple options
+   - **Options grid** - where you define the available options
+   
+4. Click **"+ ADD OPTION"** to add department options:
+   - Type `Engineering` in the first option
+   - Click "+ ADD OPTION" again to add more departments (like "Sales", "Marketing", "HR")
+
+5. Click **"SAVE"**
+
+## Understanding Data Types
+
+Sheety App offers various data types to match your data needs:
+
+| Data Type | Description | Example Use Case |
+|-----------|-------------|------------------|
+| **Text** | Plain text or rich text (markdown) | Names, descriptions, notes |
+| **Number** | Numeric values (integers or decimals) | Age, salary, quantity |
+| **Check box** | True/false or yes/no values | Active status, completed tasks |
+| **Date** | Date and optionally time | Birth date, hire date, deadline |
+| **Option** | Single or multiple choice from predefined list | Department, status, category |
+| **Row Reference** | Link to another row in a different sheet | Manager reference, related items |
+| **Member** | Reference to workspace members | Assigned to, created by |
+| **Sealed Option** | Once a user selects an option, only they can change it (choice is locked to the user who selected it) | Personal assignments, claimed items |
+| **Vote** | Allow users to vote on options | Survey responses, polls |
+
+:::note[Compute Columns]
+There's also **Compute Columns** that automatically calculate values based on formulas. We'll cover these in a separate tutorial.
+:::
+
+## Step 5: Viewing Your Columns
+
+Now let's see how your columns appear in the actual sheet view.
+
+![Multiple Columns List](/assets/docs/tutorials/adding-columns/08-multiple-columns.png)
+
+Navigate back to your sheet by clicking on **"Employees"** in the breadcrumb navigation. You'll now see your sheet with all the columns you created!
+
+![Sheet with Columns](/assets/docs/tutorials/adding-columns/09-sheet-with-columns.png)
+
+Your sheet now has:
+- ✅ **Full Name** column (Text)
+- ✅ **Email** column (Text)
+- ✅ **Department** column (Option)
+- ✅ **Changed At** (system column added automatically)
+
+You're now ready to start adding data to your sheet!
+
+## Managing Columns
+
+Once you've created columns, you can:
+
+- **Edit** - Click the edit icon (pencil) next to any column to modify its properties
+- **Delete** - Click the delete icon (trash) to remove a column
+- **Reorder** - Drag and drop columns to change their order (in the sheet view)
+- **Hide/Show** - Use the "Columns" button in the sheet toolbar to hide or show specific columns
+
+:::caution[Deleting Columns]
+Deleting a column will permanently remove all data stored in that column. This action cannot be undone!
+:::
+
+## Best Practices for Columns
+
+When creating columns, follow these best practices:
+
+1. **Use descriptive names** - Make column names clear and self-explanatory
+2. **Add descriptions** - Help team members understand what data goes in each column
+3. **Choose the right data type** - Select the most appropriate type for your data
+4. **Start simple** - Begin with essential columns and add more as needed
+5. **Plan your structure** - Think about relationships between data before creating columns
+
+## What's Next?
+
+Now that you know how to add columns, you can:
+
+- **[Add Data to Your Sheet](/docs/tutorials/adding-data)** - Start entering information into your sheet
+- **[Import Existing Data](/docs/tutorials/importing-data)** - Bring in data from CSV or Excel files
+- **[Set Up Column Validation](/docs/tutorials/column-validation)** - Add rules to ensure data quality
+- **[Create Computed Columns](/docs/tutorials/computed-columns)** - Build columns with automatic calculations
+
+## Summary
+
+In this tutorial, you learned how to:
+
+- ✅ Access the columns management page
+- ✅ Create columns with different data types (Text, Option)
+- ✅ Understand available column data types
+- ✅ View your columns in the sheet view
+- ✅ Manage and organize your columns
+
+Your sheet now has a solid data structure and is ready for data entry!
+
+## Need Help?
+
+If you encounter any issues or have questions:
+
+- Check out our [FAQ](/docs/faq)
+- Learn about [Column Data Types](/docs/concepts/column-types)
+- Visit our [Community Forum](https://community.sheetyapp.com)
+- Contact support at [support@sheetyapp.com](mailto:support@sheetyapp.com)

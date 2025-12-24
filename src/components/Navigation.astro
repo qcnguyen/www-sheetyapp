@@ -12,6 +12,7 @@ const currentPath = Astro.url.pathname;
 	<div class="menu-links">
 		<a href="/" class={`nav-link text-lg ${currentPath === '/' ? 'active' : ''}`}>Home</a>
 		<a href="/articles" class={`nav-link text-lg ${currentPath.startsWith('/articles') ? 'active' : ''}`}>Articles</a>
+		<a href="/docs" class={`nav-link text-lg ${currentPath.startsWith('/docs') ? 'active' : ''}`}>Docs</a>
 		<a href="/terms" class={`nav-link text-lg ${currentPath === '/terms' || currentPath === '/terms/' ? 'active' : ''}`}>Terms</a>
 		<a href="/about" class={`nav-link text-lg ${currentPath === '/about' || currentPath === '/about/' ? 'active' : ''}`}>About Us</a>
 	</div>
@@ -23,6 +24,7 @@ const currentPath = Astro.url.pathname;
 	<div class="mobile-menu" id="mobileMenu">
 		<a href="/" class={currentPath === '/' ? 'active' : ''}>Home</a>
 		<a href="/articles" class={currentPath.startsWith('/articles') ? 'active' : ''}>Articles</a>
+		<a href="/docs" class={currentPath.startsWith('/docs') ? 'active' : ''}>Docs</a>
 		<a href="/terms" class={currentPath === '/terms' || currentPath === '/terms/' ? 'active' : ''}>Terms</a>
 		<a href="/about" class={currentPath === '/about' || currentPath === '/about/' ? 'active' : ''}>About Us</a>
 	</div>
