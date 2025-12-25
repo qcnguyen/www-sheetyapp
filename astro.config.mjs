@@ -40,6 +40,7 @@ export default defineConfig({
                                 { label: 'Creating Your First Workbook', link: '/docs/tutorials/creating-your-first-workbook' },
                                 { label: 'Adding Columns to Your Sheet', link: '/docs/tutorials/adding-columns' },
                                 { label: 'Adding Data to Your Sheet', link: '/docs/tutorials/adding-data' },
+                                { label: 'Column Validation', link: '/docs/tutorials/column-validation' },
                             ]
                         },
                     ],
@@ -48,6 +49,13 @@ export default defineConfig({
                     label: 'Concepts',
                     collapsed: true,
                     autogenerate: { directory: 'concepts' },
+                },
+                {
+                    label: 'Guides',
+                    collapsed: true,
+                    items: [
+                        { label: 'Column Management Page', link: '/docs/guides/column-management' },
+                    ],
                 },
                 {
                     label: 'Reference',
