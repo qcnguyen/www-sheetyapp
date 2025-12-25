@@ -1,16 +1,16 @@
 ---
 title: Adding Columns to Your Sheet
-description: Learn how to define your data structure by adding columns with different data types
+description: Learn how to quickly add columns to define your data structure
 ---
 
 Now that you've created your first workbook and sheet, it's time to define your data structure by adding columns. Columns in Sheety App are like fields in a database table - each column has a name, description, and data type that determines what kind of information it can store.
 
 ## What You'll Learn
 
-- How to access the columns management page
+- How to quickly add columns using right-click
 - Creating columns with different data types
-- Understanding available column data types
-- Viewing your columns in the sheet
+- Understanding the Add Column dialog
+- Alternative ways to manage columns
 
 ## Prerequisites
 
@@ -25,54 +25,48 @@ Before we start adding columns, let's understand what they are:
 - **Column names** should be descriptive and easy to understand
 - You can add, edit, or remove columns at any time
 
-## Step 1: Accessing the Columns Page
+## Step 1: Adding Columns with Right-Click (Recommended)
 
-When you first create a sheet, it has no columns. You'll see an empty sheet view with a helpful message guiding you to add columns.
+The fastest way to add columns is by right-clicking directly on the data grid. This method works whether your sheet is empty or already contains data.
 
-![Empty Sheet](/assets/docs/tutorials/adding-columns/01-empty-sheet.png)
+When you first create a sheet, it has no columns. You'll see an empty sheet view with a helpful message:
 
-There are two ways to access the columns management page:
+![Empty Sheet](/assets/docs/tutorials/adding-columns/02a-empty-sheet-rightclick.png)
 
-### Method 1: Using the Sheet Menu
+### Adding Your First Column
 
-1. Click the **three dots menu** (⋯) next to the sheet name in the breadcrumb
-2. Select **"Columns"** from the dropdown menu
+1. **Right-click** anywhere on the data grid area (the center area of the sheet)
+   - This works on empty sheets or on sheets with existing data
+   - You can right-click on any empty space in the grid
 
-![Sheet Menu](/assets/docs/tutorials/adding-columns/02-sheet-menu.png)
+![Right-Click Context Menu](/assets/docs/tutorials/adding-columns/02b-rightclick-context-menu.png)
 
-### Method 2: Right-Click on Sheet (Alternative)
+2. Select **"Add Column"** from the context menu
 
-You can also right-click anywhere on an empty sheet to access the context menu, though the menu approach is more reliable.
+3. The "Add Column" dialog will open directly
 
-## Step 2: The Columns Management Page
+![Add Column Dialog](/assets/docs/tutorials/adding-columns/02c-add-column-dialog-rightclick.png)
 
-Once you access the Columns page, you'll see:
+:::tip[Quick Access]
+Right-clicking on the data grid is the fastest way to add columns. It saves you from navigating to the Columns management page and gets you straight to creating columns!
+:::
 
-- A search bar to find columns
-- **"+ COLUMN"** button to add regular columns
-- **"+ COMPUTE COLUMN"** button for calculated columns
-- A list of all existing columns (empty for new sheets)
-
-![Columns Page](/assets/docs/tutorials/adding-columns/03-columns-page.png)
-
-## Step 3: Creating Your First Column
+## Step 2: Creating Your First Column
 
 Let's add a "Full Name" column to store employee names.
 
-1. Click the **"CREATE FIRST COLUMN"** button (or "+ COLUMN" if you already have columns)
-
-2. The "Add New Column" dialog appears with four tabs:
-   - **Definition** - Basic column information
-   - **Validation** - Rules for data validation
-   - **Restriction** - Access and permission settings
-   - **Value Suggestion** - Auto-complete options
+In the "Add Column" dialog that appeared, you'll see four tabs:
+- **Definition** - Basic column information
+- **Validation** - Rules for data validation
+- **Restriction** - Access and permission settings
+- **Value Suggestion** - Auto-complete options
 
 ![Add Column Form](/assets/docs/tutorials/adding-columns/04-add-column-form.png)
 
-3. Fill in the column details on the **Definition** tab:
-   - **Name**: `Full Name`
-   - **Description**: `Employee's full name`
-   - **Data Type**: Select **Text** (already selected by default)
+Fill in the column details on the **Definition** tab:
+- **Name**: `Full Name`
+- **Description**: `Employee's full name`
+- **Data Type**: Select **Text** (already selected by default)
 
 ![Add Column Filled](/assets/docs/tutorials/adding-columns/05-add-column-filled.png)
 
@@ -80,46 +74,46 @@ Let's add a "Full Name" column to store employee names.
 When you enter a column name, Sheety automatically generates a field name (like "FullName") that will be used in the API and formulas. You can see this displayed below the Name field.
 :::
 
-4. Click **"SAVE"** to create the column
+Click **"SAVE"** to create the column.
 
-You'll see a success message, and your new column will appear in the list!
+You'll see a success message, and your new column will appear in your sheet!
 
-![Column Created](/assets/docs/tutorials/adding-columns/06-column-created.png)
+## Step 3: Adding More Columns
 
-## Step 4: Adding More Columns with Different Data Types
-
-Let's add a few more columns to demonstrate the different data types available in Sheety App.
+To add more columns, simply right-click on the data grid again and select "Add Column". Let's add a few more columns to demonstrate different data types.
 
 ### Adding an Email Column (Text Type)
 
-1. Click **"+ COLUMN"** button at the top
-2. Enter:
+1. **Right-click** on the data grid
+2. Select **"Add Column"**
+3. Enter:
    - **Name**: `Email`
    - **Description**: `Employee's email address`
    - **Data Type**: **Text**
-3. Click **"SAVE"**
+4. Click **"SAVE"**
 
 ### Adding a Department Column (Option Type)
 
-The Option data type creates a dropdown list of predefined choices. Perfect for department selections!
+The Option data type creates a dropdown list of predefined choices - perfect for department selections!
 
-1. Click **"+ COLUMN"** button
-2. Enter:
+1. **Right-click** on the data grid
+2. Select **"Add Column"**
+3. Enter:
    - **Name**: `Department`
    - **Description**: `Employee's department`
    - **Data Type**: Select **Option**
 
 ![Option Type Column](/assets/docs/tutorials/adding-columns/07-option-type.png)
 
-3. When you select "Option", additional fields appear:
+4. When you select "Option", additional fields appear:
    - **Allow Multi Selection** - checkbox to allow selecting multiple options
    - **Options grid** - where you define the available options
    
-4. Click **"+ ADD OPTION"** to add department options:
+5. Click **"+ ADD OPTION"** to add department options:
    - Type `Engineering` in the first option
    - Click "+ ADD OPTION" again to add more departments (like "Sales", "Marketing", "HR")
 
-5. Click **"SAVE"**
+6. Click **"SAVE"**
 
 ## Understanding Data Types
 
@@ -134,20 +128,16 @@ Sheety App offers various data types to match your data needs:
 | **Option** | Single or multiple choice from predefined list | Department, status, category |
 | **Row Reference** | Link to another row in a different sheet | Manager reference, related items |
 | **Member** | Reference to workspace members | Assigned to, created by |
-| **Sealed Option** | Once a user selects an option, only they can change it (choice is locked to the user who selected it) | Personal assignments, claimed items |
+| **Sealed Option** | Once a user selects an option, only they can change it | Personal assignments, claimed items |
 | **Vote** | Allow users to vote on options | Survey responses, polls |
 
 :::note[Compute Columns]
-There's also **Compute Columns** that automatically calculate values based on formulas. We'll cover these in a separate tutorial.
+There's also **Compute Columns** that automatically calculate values based on formulas. Right-click and select "Add Compute Column" to create one. Learn more in the [Computed Columns tutorial](/docs/tutorials/computed-columns).
 :::
 
-## Step 5: Viewing Your Columns
+## Viewing Your Columns in the Sheet
 
-Now let's see how your columns appear in the actual sheet view.
-
-![Multiple Columns List](/assets/docs/tutorials/adding-columns/08-multiple-columns.png)
-
-Navigate back to your sheet by clicking on **"Employees"** in the breadcrumb navigation. You'll now see your sheet with all the columns you created!
+After adding your columns, your sheet now displays them as column headers!
 
 ![Sheet with Columns](/assets/docs/tutorials/adding-columns/09-sheet-with-columns.png)
 
@@ -159,18 +149,60 @@ Your sheet now has:
 
 You're now ready to start adding data to your sheet!
 
-## Managing Columns
+## Editing Columns with Right-Click
 
-Once you've created columns, you can:
+Once you've created columns, you can quickly edit them by right-clicking on the column header. This is much faster than navigating to the Column Management Page when you just need to make a quick change.
 
-- **Edit** - Click the edit icon (pencil) next to any column to modify its properties
-- **Delete** - Click the delete icon (trash) to remove a column
-- **Reorder** - Drag and drop columns to change their order (in the sheet view)
-- **Hide/Show** - Use the "Columns" button in the sheet toolbar to hide or show specific columns
+### How to Edit a Column
 
-:::caution[Deleting Columns]
-Deleting a column will permanently remove all data stored in that column. This action cannot be undone!
+1. **Right-click** on any column header in the data grid
+   - For example, right-click on the "Department" column header
+
+![Right-Click Column Header](/assets/docs/tutorials/adding-columns/10-rightclick-edit-context-menu.png)
+
+2. From the context menu, you'll see options:
+   - **Edit [Column Name]** - Opens the Edit Column dialog
+   - **Delete [Column Name]** - Removes the column (with confirmation)
+   - **Add Column** - Adds a new column
+   - **Add Compute Column** - Adds a computed column
+
+3. Select **"Edit Department"** (or whichever column you're editing)
+
+4. The "Edit Column" dialog opens with the same four tabs as when creating:
+
+![Edit Column Dialog](/assets/docs/tutorials/adding-columns/11-edit-column-dialog.png)
+
+5. Make your changes:
+   - Update the **Name** or **Description**
+   - Modify settings on any of the tabs
+   - For Option columns, add or remove options from the list
+   - Note: The **Data Type** cannot be changed after creation (it's disabled)
+
+6. Click **"SAVE"** to apply your changes
+
+:::caution[Data Type Cannot Be Changed]
+Once a column is created, you cannot change its data type. If you need a different data type, you'll need to create a new column and optionally delete the old one.
 :::
+
+:::tip[Quick Edit Access]
+Right-clicking on column headers gives you instant access to edit or delete columns without leaving the sheet view. This is perfect for making quick adjustments while working with your data!
+:::
+
+## Alternative: Using the Column Management Page
+
+While right-clicking is the fastest way to add columns, you can also use the **Column Management Page** for more comprehensive column management. This is useful when you need to:
+
+- View all columns at once
+- Create multiple columns in succession
+- Edit or delete existing columns
+- Search for specific columns
+- Organize your data structure
+
+To access the Column Management Page:
+1. Click the **three dots menu** (⋯) next to the sheet name
+2. Select **"Columns"**
+
+Learn more about the Column Management Page and its features in our [Column Management guide](/docs/guides/column-management).
 
 ## Best Practices for Columns
 
@@ -187,6 +219,7 @@ When creating columns, follow these best practices:
 Now that you know how to add columns, you can:
 
 - **[Add Data to Your Sheet](/docs/tutorials/adding-data)** - Start entering information into your sheet
+- **[Column Management Page](/docs/guides/column-management)** - Learn about comprehensive column management features
 - **[Import Existing Data](/docs/tutorials/importing-data)** - Bring in data from CSV or Excel files
 - **[Set Up Column Validation](/docs/tutorials/column-validation)** - Add rules to ensure data quality
 - **[Create Computed Columns](/docs/tutorials/computed-columns)** - Build columns with automatic calculations
@@ -195,11 +228,11 @@ Now that you know how to add columns, you can:
 
 In this tutorial, you learned how to:
 
-- ✅ Access the columns management page
+- ✅ Quickly add columns by right-clicking on the data grid
 - ✅ Create columns with different data types (Text, Option)
-- ✅ Understand available column data types
-- ✅ View your columns in the sheet view
-- ✅ Manage and organize your columns
+- ✅ Understand the Add Column dialog and its tabs
+- ✅ View your columns in the sheet
+- ✅ Use the Column Management Page as an alternative
 
 Your sheet now has a solid data structure and is ready for data entry!
 
@@ -209,5 +242,6 @@ If you encounter any issues or have questions:
 
 - Check out our [FAQ](/docs/faq)
 - Learn about [Column Data Types](/docs/concepts/column-types)
+- Read the [Column Management guide](/docs/guides/column-management)
 - Visit our [Community Forum](https://community.sheetyapp.com)
 - Contact support at [support@sheetyapp.com](mailto:support@sheetyapp.com)
