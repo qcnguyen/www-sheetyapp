@@ -44,6 +44,20 @@ export default defineConfig({
                                 { label: 'Creating Compute Columns', link: '/docs/tutorials/compute-columns' }
                             ]
                         },
+                        { 
+                            label: 'Queries & Filtering',
+                            collapsed: false,
+                            items: [
+                                { label: 'Creating Sheet Queries', link: '/docs/tutorials/creating-query' },
+                            ]
+                        },
+                        { 
+                            label: 'Apps & Dashboards',
+                            collapsed: false,
+                            items: [
+                                { label: 'Creating Your First App', link: '/docs/tutorials/creating-app' },
+                            ]
+                        },
                     ],
                 },
                 {
