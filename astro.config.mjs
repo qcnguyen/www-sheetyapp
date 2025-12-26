@@ -41,6 +41,7 @@ export default defineConfig({
                                 { label: 'Adding Columns to Your Sheet', link: '/docs/tutorials/adding-columns' },
                                 { label: 'Adding Data to Your Sheet', link: '/docs/tutorials/adding-data' },
                                 { label: 'Column Validation', link: '/docs/tutorials/column-validation' },
+                                { label: 'Creating Compute Columns', link: '/docs/tutorials/compute-columns' }
                             ]
                         },
                     ],
