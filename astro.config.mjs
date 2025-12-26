@@ -55,6 +55,7 @@ export default defineConfig({
                     label: 'Guides',
                     collapsed: true,
                     items: [
+                        { label: 'Q-Expression Guide', link: '/docs/guides/q-expression' },
                         { label: 'Column Management Page', link: '/docs/guides/column-management' },
                     ],
                 },
