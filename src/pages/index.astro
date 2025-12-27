@@ -246,6 +246,11 @@ const structuredData = {
 			
 			let currentIndex = 0;
 			const animatedReasonElement = document.getElementById('animated-reason');
+			const animatedReasonContainer = document.querySelector('.animated-reason-container');
+			let animationInterval;
+			let isHovering = false;
+			const FAST_INTERVAL = 800; // Faster default speed
+			const SLOW_INTERVAL = 3000; // Slower speed on hover
 			
 			function updateReason() {
 				// Fade out
@@ -260,12 +265,32 @@ const structuredData = {
 				}, 300);
 			}
 			
+			function startAnimation(interval) {
+				if (animationInterval) {
+					clearInterval(animationInterval);
+				}
+				animationInterval = setInterval(updateReason, interval);
+			}
+			
 			// Initialize with first reason
 			animatedReasonElement.textContent = reasons[0];
 			animatedReasonElement.style.opacity = '1';
 			
-			// Change reason every 2 seconds
-			setInterval(updateReason, 2000);
+			// Start with fast animation
+			startAnimation(FAST_INTERVAL);
+			
+			// Add hover listeners
+			animatedReasonContainer.addEventListener('mouseenter', () => {
+				isHovering = true;
+				if (animationInterval) {
+					clearInterval(animationInterval);
+				}
+			});
+			
+			animatedReasonContainer.addEventListener('mouseleave', () => {
+				isHovering = false;
+				startAnimation(FAST_INTERVAL);
+			});
 
 			window.addEventListener('scroll', function() {
 				// Handle parallax effect
