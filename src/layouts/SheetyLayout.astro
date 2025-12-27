@@ -394,6 +394,43 @@ const siteName = "Sheety App";
 				color: transparent;
 				text-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
 			}
+			.hero-context {
+				font-size: 1.5rem;
+				font-weight: 400;
+				color: rgba(255, 255, 255, 0.7);
+				margin-bottom: 2rem;
+				line-height: 1.6;
+			}
+			.animated-reason-container {
+				display: inline-block;
+				position: relative;
+				height: 1.6em;
+				vertical-align: bottom;
+				min-width: 300px;
+			}
+			.animated-reason {
+				position: absolute;
+				left: 0;
+				top: 0;
+				width: 100%;
+				font-weight: 600;
+				color: rgba(255, 255, 255, 0.95);
+				transition: opacity 0.3s ease-in-out;
+				white-space: nowrap;
+				text-align: left;
+			}
+			.hero-main {
+				font-size: 4.5rem;
+				font-weight: 800;
+				line-height: 1.1;
+				margin: 0;
+				background: linear-gradient(90deg, white, #f8fafc);
+				-webkit-background-clip: text;
+				background-clip: text;
+				color: transparent;
+				text-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+				text-align: center;
+			}
 			h2.subtitle {
 				font-size: 2.5rem;
 				font-weight: 700;
@@ -954,6 +991,12 @@ const siteName = "Sheety App";
 				h1 {
 					font-size: 2.5rem;
 				}
+				.hero-context {
+					font-size: 1.1rem;
+				}
+				.hero-main {
+					font-size: 2.5rem;
+				}
 				h2.subtitle {
 					font-size: 1.5rem;
 				}
@@ -1082,6 +1125,12 @@ const siteName = "Sheety App";
 
 			@media (max-width: 480px) {
 				h1 {
+					font-size: 2rem;
+				}
+				.hero-context {
+					font-size: 0.95rem;
+				}
+				.hero-main {
 					font-size: 2rem;
 				}
 				h2.subtitle {
