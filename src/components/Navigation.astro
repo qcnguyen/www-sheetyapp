@@ -12,9 +12,15 @@ const currentPath = Astro.url.pathname;
 	<div class="menu-links">
 		<a href="/" class={`nav-link text-lg ${currentPath === '/' ? 'active' : ''}`}>Home</a>
 		<a href="/articles" class={`nav-link text-lg ${currentPath.startsWith('/articles') ? 'active' : ''}`}>Articles</a>
-		<a href="/docs" class={`nav-link text-lg ${currentPath.startsWith('/docs') ? 'active' : ''}`}>Docs</a>
 		<a href="/terms" class={`nav-link text-lg ${currentPath === '/terms' || currentPath === '/terms/' ? 'active' : ''}`}>Terms</a>
 		<a href="/about" class={`nav-link text-lg ${currentPath === '/about' || currentPath === '/about/' ? 'active' : ''}`}>About Us</a>
+		<a href="https://docs.sheetyapp.com" class={`nav-link text-lg`}>
+			<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="display: inline-block; vertical-align: middle; margin-right: 4px;">
+				<path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"></path>
+				<path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"></path>
+			</svg>
+			Documentation
+		</a>
 	</div>
 	<div class="mobile-menu-btn" id="mobileMenuBtn">
 		<span></span>
@@ -24,9 +30,15 @@ const currentPath = Astro.url.pathname;
 	<div class="mobile-menu" id="mobileMenu">
 		<a href="/" class={currentPath === '/' ? 'active' : ''}>Home</a>
 		<a href="/articles" class={currentPath.startsWith('/articles') ? 'active' : ''}>Articles</a>
-		<a href="/docs" class={currentPath.startsWith('/docs') ? 'active' : ''}>Docs</a>
 		<a href="/terms" class={currentPath === '/terms' || currentPath === '/terms/' ? 'active' : ''}>Terms</a>
 		<a href="/about" class={currentPath === '/about' || currentPath === '/about/' ? 'active' : ''}>About Us</a>
+		<a href="https://docs.sheetyapp.com" class={`nav-link text-lg`}>
+			<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="display: inline-block; vertical-align: middle; margin-right: 4px;">
+				<path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"></path>
+				<path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"></path>
+			</svg>
+			Documentation
+		</a>
 	</div>
 	<a href="https://go.sheetyapp.com" class="get-app-btn">Get Sheety App</a>
 </nav>
